@@ -1,5 +1,8 @@
 # IsraelTrainAPI
 
+NOT FINISHED, there are bugs and a need for an API key, to be continued
+
+
 A Python wrapper for the Israel Train API.
 
 ## Installation
