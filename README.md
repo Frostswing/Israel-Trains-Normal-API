@@ -2,6 +2,13 @@
 
 A Python wrapper for the Israel Train API.
 
+## Installation
+
+To install the package, run:
+
+```bash
+pip install git+https://github.com/Frostswing/Israel-Trains-Normal-API.git
+```
 
 # Usage
 To use the package, create an instance of the IsraelTrainAPI class and call its methods:
@@ -40,14 +47,25 @@ get_routes(self, source: str, destination: str, time: Optional[str] = None, date
 Gets all routes from a specific source to a specific destination.
 
 Parameters
+
 source (str): The name of the source station.
+
 destination (str): The name of the destination station.
+
 time (str, optional): The time of the desired departure (in the format HH:MM). If not provided, returns all routes.
+
 date (str, optional): The date of the desired departure (in the format DD/MM/YYYY). If not provided, defaults to the current date.
+
 Returns
+
 A list of dictionaries, each representing a route. Each dictionary contains the following keys:
+
 departure_time: The departure time (in the format HH:MM).
+
 arrival_time: The arrival time (in the format HH:MM).
+
 duration: The duration of the route (in the format HH:MM).
+
 price: The price of the route.
+
 train_type: The type of train (e.g. "רכבת מהירה
