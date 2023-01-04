@@ -4,10 +4,6 @@ A Python wrapper for the Israel Train API.
 
 ## Installation
 
-To install the package, run:
-
-```bash
-pip install israel-train-api
 
 # Usage
 To use the package, create an instance of the IsraelTrainAPI class and call its methods:
