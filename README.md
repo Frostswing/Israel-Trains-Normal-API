@@ -22,20 +22,24 @@ To use the package, create an instance of the IsraelTrainAPI class and call its 
 
 ## Get a list of all station names
 > station_names = api.get_station_names()
+> 
 > print(station_names)
 
 
 ## Get all routes from a specific source to a specific destination
-routes = api.get_routes(source='תל אביב מכבי', destination='נתניה')
-print(routes)
+> routes = api.get_routes(source='תל אביב מכבי', destination='נתניה')
+>
+> print(routes)
 
 ## Get all routes from a specific source to a specific destination in the next 60 minutes
-next_departures = api.get_next_departures(source='תל אביב מכבי', destination='נתניה')
-print(next_departures)
+> next_departures = api.get_next_departures(source='תל אביב מכבי', destination='נתניה')
+> 
+> print(next_departures)
 
 ## Get all routes from a specific source to a specific destination on a specific date and time
-routes = api.get_routes(source='תל אביב מכבי', destination='נתניה', time='20:00', date='10/01/2022')
-print(routes)
+> routes = api.get_routes(source='תל אביב מכבי', destination='נתניה', time='20:00', date='10/01/2022')
+>
+> print(routes)
 
 # API Reference
 ## 'IsraelTrainAPI'
