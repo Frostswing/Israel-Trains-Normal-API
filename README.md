@@ -2,8 +2,6 @@
 
 A Python wrapper for the Israel Train API.
 
-## Installation
-
 
 # Usage
 To use the package, create an instance of the IsraelTrainAPI class and call its methods:
