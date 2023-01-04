@@ -15,11 +15,11 @@ pip install git+https://github.com/Frostswing/Israel-Trains-Normal-API.git
 
 # Usage
 To use the package, create an instance of the IsraelTrainAPI class and call its methods:
-```bash
-from israel_train_api import IsraelTrainAPI
 
-api = IsraelTrainAPI()
-```
+> from israel_train_api import IsraelTrainAPI
+
+> api = IsraelTrainAPI()
+
 ## Get a list of all station names
 station_names = api.get_station_names()
 print(station_names)
