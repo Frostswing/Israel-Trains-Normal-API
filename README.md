@@ -2,6 +2,13 @@
 
 A Python wrapper for the Israel Train API.
 
+## Installation
+
+To install the package, run:
+
+```bash
+pip install --editable git+https://github.com/Frostswing/Israel-Trains-Normal-API.git
+'''
 
 # Usage
 To use the package, create an instance of the IsraelTrainAPI class and call its methods:
