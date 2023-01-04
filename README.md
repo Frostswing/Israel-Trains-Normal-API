@@ -27,17 +27,17 @@ To use the package, create an instance of the IsraelTrainAPI class and call its 
 
 
 ## Get all routes from a specific source to a specific destination
-> routes = api.get_routes(source='תל אביב מכבי', destination='נתניה')
+> routes = api.get_routes(source='תל אביב אוניברסיטה', destination='רעננה דרום')
 >
 > print(routes)
 
 ## Get all routes from a specific source to a specific destination in the next 60 minutes
-> next_departures = api.get_next_departures(source='תל אביב מכבי', destination='נתניה')
+> next_departures = api.get_next_departures(source='תל אביב אוניברסיטה', destination='רעננה דרום')
 > 
 > print(next_departures)
 
 ## Get all routes from a specific source to a specific destination on a specific date and time
-> routes = api.get_routes(source='תל אביב מכבי', destination='נתניה', time='20:00', date='10/01/2022')
+> routes = api.get_routes(source='תל אביב אוניברסיטה', destination='רעננה דרום', time='20:00', date='10/01/2022')
 >
 > print(routes)
 
@@ -76,4 +76,4 @@ duration: The duration of the route (in the format HH:MM).
 
 price: The price of the route.
 
-train_type: The type of train (e.g. "רכבת מהירה
+train_type: The type of train (e.g. "רכבת ישירה
