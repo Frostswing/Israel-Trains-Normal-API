@@ -17,12 +17,13 @@ pip install git+https://github.com/Frostswing/Israel-Trains-Normal-API.git
 To use the package, create an instance of the IsraelTrainAPI class and call its methods:
 
 > from israel_train_api import IsraelTrainAPI
-> >
+> 
 > api = IsraelTrainAPI()
 
 ## Get a list of all station names
-station_names = api.get_station_names()
-print(station_names)
+> station_names = api.get_station_names()
+> print(station_names)
+
 
 ## Get all routes from a specific source to a specific destination
 routes = api.get_routes(source='תל אביב מכבי', destination='נתניה')
