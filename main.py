@@ -3,9 +3,8 @@ import requests
 
 class IsraelTrainAPI:
     def __init__(self):
-        self.base_url = "http://railway.gov.il/he/Departures/RealTimeDepartures"
-        self.stations_url = "http://railway.gov.il/he/StationMap"
-        self.routes_url = "http://railway.gov.il/he/Routes/GetRoutes"
+        # Initialize the IsraelRailApi instance
+        self.rail_api = israelrailapi.TrainSchedule()
 
     def get_departures(self, station_code):
         """
@@ -76,39 +75,46 @@ class IsraelTrainAPI:
                 - 'price': The price of the route.
                 - 'train_type': The type of train (e.g. "רכבת מהירה", "רכבת רגילה").
         """
-        source_code = self._get_station_code(source)
-        destination_code = self._get_station_code(destination)
+        # Query the IsraelRailApi instance for the train routes
 
-        if source_code is None:
-            raise ValueError(f"Invalid source station: {source}")
-        if destination_code is None:
-            raise ValueError(f"Invalid destination station: {destination}")
+        routes = self.rail_api.query(source, destination)
 
-        params = {
-            "Origin": source_code,
-            "Destination": destination_code
-        }
+        # Create a list to store the formatted route information
+        formatted_routes = []
 
-        if time is not None:
-            params['Time'] = time
-        if date is not None:
-            params['Date'] = date
-
-        response = requests.get(self.routes_url, params=params)
-        data = response.json()
-
-        routes = []
-        for route in data['Routes']:
-            route_data = {
-                'departure_time': route['Departure'],
-                'arrival_time': route['Arrival'],
-                'duration': route['Duration'],
-                'price': route['Price'],
-                'train_type': route['Type']
+        # Iterate over the routes and format the information
+        for route in routes:
+            formatted_route = {
+                'departure_time': route.start_time,
+                'arrival_time': route.end_time,
+                'duration': self._format_duration(route.start_time, route.end_time),
+                'price': None,  # The IsraelRailApi class does not provide price information
+                'train_type': None  # The IsraelRailApi class does not provide train type information
             }
-            routes.append(route_data)
+            formatted_routes.append(formatted_route)
 
-        return routes
+        return formatted_routes
+
+    def _format_duration(self, start_time, end_time):
+        """
+        Calculates the duration between two times in the format HH:MM.
+
+        Parameters:
+            - start_time (str): The start time (in the format HH:MM).
+            - end_time (str): The end time (in the format HH:MM).
+
+        Returns:
+            - The duration between the two times (in the format HH:MM).
+        """
+        # Parse the start and end times
+        start = datetime.datetime.strptime(start_time, "%d/%m/%Y %H:%M:%S")
+        end = datetime.datetime.strptime(end_time, "%d/%m/%Y %H:%M:%S")
+
+        # Calculate the duration and format it as a string
+        duration = end - start
+        hours, remainder = divmod(duration.seconds, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        return f"{hours:02d}:{minutes:02d}"
 
     def get_next_departures(self, source, destination, time=None, date=None):
         """
