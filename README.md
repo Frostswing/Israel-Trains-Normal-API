@@ -10,19 +10,19 @@ from israel_train_api import IsraelTrainAPI
 
 api = IsraelTrainAPI()
 
-# Get a list of all station names
+## Get a list of all station names
 station_names = api.get_station_names()
 print(station_names)
 
-# Get all routes from a specific source to a specific destination
+## Get all routes from a specific source to a specific destination
 routes = api.get_routes(source='תל אביב מכבי', destination='נתניה')
 print(routes)
 
-# Get all routes from a specific source to a specific destination in the next 60 minutes
+## Get all routes from a specific source to a specific destination in the next 60 minutes
 next_departures = api.get_next_departures(source='תל אביב מכבי', destination='נתניה')
 print(next_departures)
 
-# Get all routes from a specific source to a specific destination on a specific date and time
+## Get all routes from a specific source to a specific destination on a specific date and time
 routes = api.get_routes(source='תל אביב מכבי', destination='נתניה', time='20:00', date='10/01/2022')
 print(routes)
 
