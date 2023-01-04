@@ -7,7 +7,7 @@ A Python wrapper for the Israel Train API.
 To install the package, run:
 
 ```bash
-pip install --editable git+https://github.com/Frostswing/Israel-Trains-Normal-API.git
+pip install git+https://github.com/Frostswing/Israel-Trains-Normal-API.git
 ```
 
 # Usage
