@@ -1,6 +1,6 @@
 # IsraelTrainAPI
 
-*NOT FINISHED, there are bugs and a need for an API key, to be continued*
+*Project closed... the real API of the israeli railways closed...*
 
 
 A Python wrapper for the Israel Train API.
